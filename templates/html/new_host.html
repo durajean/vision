@@ -1,0 +1,44 @@
+{% extends "dashboard-template.html" %}
+{% block title %}Ajouter un hôte{% endblock %}
+{% block header %}Ajouter un hôte{% endblock %}
+{% block content %}
+<form action="/success_new_host" method="post">
+    
+    <h3>Paramètres de l'hôte :</h3><br>
+    
+    <table>
+        <tr>
+            <td>Hostname : </td><td><input type="text" name="hostname"></td>
+        </tr>
+        <tr>
+            <td>Adresse IP : </td><td><input type="text" name="ip"></td>
+        </tr>
+        <tr>
+            <td>Communauté : </td><td><input type="text" name="community"></td>
+        </tr>
+    </table><br>
+    
+    <h3>Monitoring :</h3><br>
+    
+    <table>
+        <tr>
+              <td><input type="checkbox" name="cpu" value="CPU">
+              <label for="cpu">CPU</label></td>
+        </tr>
+        <tr>
+              <td><input type="checkbox" name="ram" value="RAM">
+              <label for="ram">RAM</label></td>
+        </tr>
+        <tr>
+              <td><input type="checkbox" name="disk" value="Disk">
+              <label for="disk">Disk</label></td>
+        </tr>
+        <tr>
+              <td><input type="checkbox" name="interfaces" value="Interfaces">
+              <label for="interfaces">Interfaces</label></td>
+        </tr>
+    </table>
+    
+    <input type="submit" value="Ajouter l'hôte">
+</form>
+{% endblock %}

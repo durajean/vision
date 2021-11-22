@@ -1,0 +1,24 @@
+{% extends "dashboard-template.html" %}
+{% block title %}Monitoring Devices{% endblock %}
+{% block header %}Monitoring Devices{% endblock %}
+{% block content %}
+<h2>Mes équipements : </h2>
+
+<table>
+    <tr>
+    <td> Nom </td><td> IP </td><td> Monitor </td>
+    </tr>
+
+
+
+{% for device in devices %}
+    <tr>
+    <td> {{ device['Hostname'] }} </td><td> {{ device['Ip'] }} </td><td> {{ device['Monitor'] }} </td><td> <input type = 'submit' value = 'Modifier'> </td><td><form action="/success_delete_host" method="post"><input type="hidden" name="hostname" value={{ device['Hostname'] }}><input type="submit" value="Supprimer"></form></td>
+    </tr>
+{% endfor %}
+</table>
+
+
+
+<button onclick="window.location.href = 'new_host';"> Ajouter un hôte </button>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "dashboard-template.html" %}
+{% block title %}Acceuil{% endblock %}
+{% block header %}Acceuil{% endblock %}
+{% block content %}
+<div class = "vision_overview">
+    <h1>Vision :</h1><br>
+    <table>
+        <tr>
+            <td>Nom de l'application :</td>
+            <td>Vision</td>
+        </tr>
+        <tr>
+            <td>Version :</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>Temps d'activité :</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Statut :</td>
+            <td>Down</td>
+        </tr>
+        <tr>
+            <td>Délais des intérogations :</td>
+            <td>0</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <table>
+        <tr>
+            <td><form method="get" action="/start"><input type = "submit" value ="Run app" class = "submit-green"></form></td>
+            <td><form method="get" action="/stop"><input type = "submit" value ="Stop app" class = "submit-red"></form></td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

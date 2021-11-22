@@ -1,0 +1,59 @@
+{% extends "dashboard-template.html" %}{% block title %}dashboard-view{% endblock %}{% block header %}{{ hostname }}{% endblock %}{% block content %}<div class = "CPU">
+    <div class = "CPU">
+        <h3>CPU diagramme: </h3>
+        
+        <canvas id="lineChartCPU" width="450" height="200"></canvas>
+    
+    
+        <script>
+            var ctxCPU = document.getElementById("lineChartCPU").getContext("2d");
+            var lineChartCPU = new Chart(ctxCPU,{
+                type: "line",
+                data: {
+                    labels: {{ data['CPU']['time'] | safe }},
+                    datasets:[
+                        {
+                            label: "Pourcentage CPU",
+                            data:{{ data['CPU']['data'] | safe }},
+                            fill: true,
+                            borderColor: "rgb(32,150,80)",
+                            lineTension: 0.5
+                        }
+                    ]
+                },
+    
+                options:{
+                    reponsive: false
+                }
+            });        
+        </script>
+    </div>
+</div><div class = "RAM">
+    <h3>RAM diagramme: </h3>
+    
+    <canvas id="lineChartRAM" width="450" height="200"></canvas>
+
+
+    <script>
+        var ctxRAM = document.getElementById("lineChartRAM").getContext("2d");
+        var lineChartRAM = new Chart(ctxRAM,{
+            type: "line",
+            data: {
+                labels: {{ data['RAM']['time'] | safe }},
+                datasets:[
+                    {
+                        label: "Pourcentage RAM",
+                        data:{{ data['RAM']['data'] | safe }},
+                        fill: true,
+                        borderColor: "rgb(37,253,233)",
+                        lineTension: 0.5
+                    }
+                ]
+            },
+
+            options:{
+                reponsive: false
+            }
+        });        
+    </script>
+</div>{% endblock %}

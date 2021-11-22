@@ -1,0 +1,29 @@
+<div class = "RAM">
+    <h3>RAM diagramme: </h3>
+    
+    <canvas id="lineChartRAM" width="450" height="200"></canvas>
+
+
+    <script>
+        var ctxRAM = document.getElementById("lineChartRAM").getContext("2d");
+        var lineChartRAM = new Chart(ctxRAM,{
+            type: "line",
+            data: {
+                labels: {{ data['RAM']['time'] | safe }},
+                datasets:[
+                    {
+                        label: "Pourcentage RAM",
+                        data:{{ data['RAM']['data'] | safe }},
+                        fill: true,
+                        borderColor: "rgb(37,253,233)",
+                        lineTension: 0.5
+                    }
+                ]
+            },
+
+            options:{
+                reponsive: false
+            }
+        });        
+    </script>
+</div>

@@ -1,0 +1,31 @@
+<div class = "CPU">
+    <div class = "CPU">
+        <h3>CPU diagramme: </h3>
+        
+        <canvas id="lineChartCPU" width="450" height="200"></canvas>
+    
+    
+        <script>
+            var ctxCPU = document.getElementById("lineChartCPU").getContext("2d");
+            var lineChartCPU = new Chart(ctxCPU,{
+                type: "line",
+                data: {
+                    labels: {{ data['CPU']['time'] | safe }},
+                    datasets:[
+                        {
+                            label: "Pourcentage CPU",
+                            data:{{ data['CPU']['data'] | safe }},
+                            fill: true,
+                            borderColor: "rgb(32,150,80)",
+                            lineTension: 0.5
+                        }
+                    ]
+                },
+    
+                options:{
+                    reponsive: false
+                }
+            });        
+        </script>
+    </div>
+</div>

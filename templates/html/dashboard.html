@@ -1,0 +1,18 @@
+{% extends "dashboard-template.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block header %}Dashboard{% endblock %}
+{% block content %}
+
+<h2>Mes équipements : </h2>
+<table>
+    <tr>
+    <td> Nom </td>
+    </tr>
+
+{% for device in devices %}
+    <tr>
+    <td> {{ device }} </td><td><form action="/dashboard-view" method="post"><input type="hidden" name="hostname" value={{ device }}><input type="submit" value="Show dashboard"></form></td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

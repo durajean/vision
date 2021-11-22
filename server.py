@@ -102,7 +102,7 @@ def success_new_host():
     if "interfaces" in rqt:
         monitor.append(rqt['interfaces'])
 
-    #Ajout de l'hôte dans l'aplication.
+    #Ajout de l'hôte dans l'application.
     master_manager.add_host(rqt['hostname'], rqt['ip'],rqt['community'], monitor)
    
     return render_template('/html/success_new_host.html', hostname = rqt['hostname'])
@@ -111,7 +111,7 @@ def success_new_host():
 def success_delete_host():
     
     #Récupération du hostname.
-    #Suppréssion de l'hôte.
+    #Suppression de l'hôte.
     hostname = request.form['hostname']
     master_manager.delete_host(hostname)
     
@@ -125,5 +125,5 @@ if __name__ == "__main__":
     #Création du contrôleur
     master_manager = master_manager("static/app/Data/startup_config.json","static/app/Saves/","templates", "templates/html")
     
-    #lancement du serveur.
+    #Lancement du serveur.
     app.run()
